@@ -2,7 +2,7 @@
 echo "INICIANDO DESPLIEGUE AUTOMÁTICO DE STEAM INSIGHT..."
 
 # 1. Crear Memoria SWAP (Vital para que la t2.large no explote)
-echo "💾 Configurando memoria SWAP de 4GB..."
+echo "Configurando memoria SWAP de 4GB..."
 sudo fallocate -l 4G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
