@@ -50,7 +50,7 @@ services:
       - SINGLE_USER_CREDENTIALS_PASSWORD=SuperSteam1234!
       - NIFI_JVM_HEAP_INIT=1g
       - NIFI_JVM_HEAP_MAX=2g
-      - NIFI_WEB_PROXY_HOST=23.20.113.74:8443,*
+      - NIFI_WEB_PROXY_HOST=54.162.157.219:8443,*
     networks:
       - steam_net
 
