@@ -25,7 +25,7 @@ sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 echo "Descargando el proyecto desde GitHub..."
 # Cambia "TU_REPO" por el nombre real de tu repositorio
 if [ ! -d "steam_insight" ]; then
-    git clone https://github.com/sefafe10/TU_REPO.git steam_insight
+    git clone https://github.com/sefafe10/Proyecto_steam.git steam_insight
 fi
 cd steam_insight
 
