@@ -50,7 +50,7 @@ services:
       - SINGLE_USER_CREDENTIALS_PASSWORD=SuperSteam1234!
       - NIFI_JVM_HEAP_INIT=1g
       - NIFI_JVM_HEAP_MAX=2g
-      - NIFI_WEB_PROXY_HOST=18.209.32.247:8443,*
+      - NIFI_WEB_PROXY_HOST=3.93.12.61:8443,*
     networks:
       - steam_net
 
@@ -65,5 +65,32 @@ services:
     user: root
     volumes:
       - ./scripts:/home/jovyan/work
+    networks:
+      - steam_net
+
+  namenode:
+    image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+    container_name: namenode
+    ports:
+      - "9870:9870"
+      - "8020:8020"
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop.env
+    networks:
+      - steam_net
+
+  datanode:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode
+    depends_on:
+      - namenode
+    ports:
+      - "9864:9864"
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870"
+    env_file:
+      - ./hadoop.env
     networks:
       - steam_net
